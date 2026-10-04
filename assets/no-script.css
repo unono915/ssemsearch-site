@@ -1,0 +1,3 @@
+.guide-panel[hidden] { display: block !important; margin-top: 24px; }
+.step-tabs .step { cursor: default; }
+.try-queries { display: none; }
