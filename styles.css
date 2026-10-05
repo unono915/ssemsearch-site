@@ -16,3 +16,8 @@
   .try-queries > div { gap: 5px; }
   .try-queries button { padding-inline: 8px; }
 }
+
+/* Show the complete roster example instead of clipping its rows. */
+.screenshot-frame { height: auto; padding: 22px; overflow: visible; }
+.screenshot-frame img { width: 100%; height: auto; }
+@media (max-width: 540px) { .screenshot-frame { height: auto; padding: 12px; } }

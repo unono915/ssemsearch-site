@@ -13,11 +13,11 @@ const path = require('node:path');
   const report = [];
   try {
     assert.equal((await page.goto(base)).status(), 200);
-    await page.locator('#demo-search').fill('0231');
-    assert.equal(await page.locator('#demo-results li').count(), 2);
-    assert.deepEqual(await page.locator('#demo-results b').allTextContents(), ['0231', '0231']);
+    await page.locator('#demo-search').fill('231');
+    assert.equal(await page.locator('#demo-results li').count(), 1);
+    assert.deepEqual(await page.locator('#demo-results b').allTextContents(), ['231']);
     await page.locator('[data-query="김민수"]').click();
-    assert.equal(await page.locator('#demo-results li').count(), 2);
+    assert.equal(await page.locator('#demo-results li').count(), 1);
     await page.locator('[data-query="교무실"]').click();
     assert.equal(await page.locator('#demo-results li').count(), 4);
     await page.locator('#demo-search').fill('없음');
@@ -31,7 +31,19 @@ const path = require('node:path');
     await page.locator('#reopen-demo').click();
     assert.equal(await page.locator('#demo-search').isVisible(), true);
     await page.locator('[data-query="김민수"]').click();
-    report.push('Search: exact extension / duplicate names / office / empty / no results / HTML input / Esc and reopen');
+    const names = [], extensions = [];
+    for (const query of ['교무실', '행정실', '보건실']) {
+      await page.locator('#demo-search').fill(query);
+      names.push(...await page.locator('#demo-results strong').allTextContents());
+      extensions.push(...await page.locator('#demo-results b').allTextContents());
+    }
+    assert.equal(names.length, 6);
+    assert.equal(new Set(names).size, 6);
+    assert.equal(extensions.every(value => /^\d{3}$/.test(value)), true);
+    assert.equal(await page.locator('.site-footer a[href*="github.com"], .download-extras a[href*="github.com"]').count(), 0);
+    assert.equal(await page.locator('.download-link').count(), 2);
+    await page.locator('#demo-search').fill('본관');
+    report.push('Search: unique names / three-digit extensions / office / empty / no results / HTML input / Esc and reopen; footer GitHub links removed');
     await page.locator('#step-tab-2').click();
     assert.equal(await page.locator('#step-panel-2').isVisible(), true);
     await page.locator('#step-tab-2').press('ArrowDown');

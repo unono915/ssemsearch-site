@@ -1,10 +1,10 @@
 const people = [
-  { name: '김민수', office: '본관 2층 교무실', extension: '0231' },
-  { name: '김민수', office: '별관 교무실', extension: '0412' },
-  { name: '박지훈', office: '본관 2층 교무실', extension: '0231' },
-  { name: '이서연', office: '1학년 교무실', extension: '0311' },
-  { name: '정하늘', office: '행정실', extension: '0105' },
-  { name: '한지우', office: '보건실', extension: '0501' },
+  { name: '김민수', office: '본관 2층 교무실', extension: '231' },
+  { name: '최유진', office: '별관 교무실', extension: '412' },
+  { name: '박지훈', office: '본관 2층 교무실', extension: '232' },
+  { name: '이서연', office: '1학년 교무실', extension: '311' },
+  { name: '정하늘', office: '행정실', extension: '105' },
+  { name: '한지우', office: '보건실', extension: '501' },
 ];
 const normalize = value => value.trim().normalize('NFC').toLocaleLowerCase('ko-KR');
 const collator = new Intl.Collator('ko-KR');
