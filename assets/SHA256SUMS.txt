@@ -1,2 +1,2 @@
-6cbc359cd510c8e997bf9844810a824bf91a51ec73daf21d8c7d5e95bbb4679b  SSemSearch-1.0.0-x64-setup.exe
-688bd850df878a2a19b403b25e93d85e75cab8ea4e74f336a444f8448784076d  SSemSearch-1.0.0-x64-portable.exe
+4139c8ad127ae965fce01bbcdf66c45f5ecac8bd4b7d9f4a8962660969b05792  SSemSearch-1.1.0-x64-setup.exe
+7bf9117f0e9d2c7b8f5bfe71de4f9977f0ce282cd34f30024ff05623ba45dd75  SSemSearch-1.1.0-x64-portable.exe

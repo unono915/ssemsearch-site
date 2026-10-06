@@ -22,7 +22,7 @@ function renderResults() {
   if (!ranked.length) {
     const empty = document.createElement('li');
     empty.className = 'empty-result';
-    empty.textContent = query ? '검색 결과가 없어요. 예시 이름이나 교무실로 찾아보세요.' : '이름, 교무실 또는 내선번호를 입력해 보세요.';
+    empty.textContent = query ? '검색 결과가 없어요. 예시 이름이나 위치(부서)로 찾아보세요.' : '이름, 위치(부서) 또는 내선번호를 입력해 보세요.';
     results.append(empty);
   }
   for (const person of ranked) {
